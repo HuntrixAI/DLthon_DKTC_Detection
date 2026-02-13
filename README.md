@@ -1,5 +1,16 @@
 # DLthon DKTC Detection
-아이펠(AIFFEL)의 인공지능 리서치 교육 과정의 일환으로 시행된 DLthon 진행 결과를 기록한 레포지토리입니다.
+아이펠(AIFFEL)의 인공지능 리서치 교육 과정의 일환으로 시행된 DLthon 진행 결과를 기록한 팀 레포지토리입니다.
+
+<br>
+<br/>
+
+## Team HuntrixAI
+Hunt the hidden threats in the Matrix of conversations.
+| 이름 | 역할 |
+|---|---|
+| 팀원 전원 | End-to-End (데이터 → 모델 → 제출) 각자 풀 파이프라인 경험 |
+
+매일 회고를 통해 Lesson Learned → 4개 버전 반복 개선
 
 <br>
 <br/>
@@ -81,16 +92,22 @@
 │   ├── v3_hard_negative_mining.ipynb
 │   └── v4_tapt_applied.ipynb
 └── output⭐
+    ├── README.md
     ├── DLthonHuntrixAI_DKTC_Threat_Detection.pdf
     ├── figures
     │   ├── ablation_confusion_matrices.png
     │   └── ablation_learning_curves.png
     └── final_src_code.ipynb
 ```
+
 <br>
 <br/>
 
 ## Data Sources
+
+- **TUNiB**
+  - [DKTC Dataset](https://github.com/tunib-ai/DKTC) — Cho et al., 2022
+
 - **Smilegate AI**
   
   - [`SmileStyle (.tsv)`](https://github.com/smilegate-ai/korean_smile_style_dataset?tab=readme-ov-file): 한국어 문체 스타일 변환 데이터셋
@@ -104,8 +121,15 @@
 <br/>
 
 ## References
-- [R-Drop: Regularized Dropout for Neural Networks](https://arxiv.org/abs/2106.14448)
-- [Don't Stop Pretraining: Adapt Language Models to Domains and Tasks (TAPT)](https://arxiv.org/abs/2004.10964)
+
+- [Focal Loss](https://arxiv.org/abs/1708.02002) — Lin et al., 2017
+- [R-Drop](https://arxiv.org/abs/2106.14448) — Liang et al., 2021
+- [FGM](https://arxiv.org/abs/1605.07725) — Miyato et al., 2017
+- [Don't Stop Pretraining](https://arxiv.org/abs/2004.10964) — Gururangan et al., 2020
+- [LLRD](https://arxiv.org/abs/2006.09462) — Zhang et al., 2021
+- [EMA / Mean Teachers](https://arxiv.org/abs/1703.01780) — Tarvainen & Valpola, 2017
+- [Label Smoothing](https://arxiv.org/abs/1512.00567) — Szegedy et al., 2016
+- [Prior Calibration](https://doi.org/10.1162/089976602753284446) — Saerens et al., 2002
 - [Hard Negative Mining](https://sjkoding.tistory.com/102)
 
 <br>
@@ -118,5 +142,3 @@
 - v1.0 - 레포지토리 생성 (2026.02.12)
 
 - v1.1 - 레포지토리 세팅 + README.md 작성 (2026.02.13)
-
-- v1.2 - 참고 문헌 추가 예정
