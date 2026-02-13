@@ -1,5 +1,16 @@
 # DLthon DKTC Detection
-아이펠(AIFFEL)의 인공지능 리서치 교육 과정의 일환으로 시행된 DLthon 진행 결과를 기록한 레포지토리입니다.
+아이펠(AIFFEL)의 인공지능 리서치 교육 과정의 일환으로 시행된 DLthon 진행 결과를 기록한 팀 레포지토리입니다.
+
+<br>
+<br/>
+
+## Team HuntrixAI
+Hunt the hidden threats in the Matrix of conversations.
+| 이름 | 역할 |
+|---|---|
+| 팀원 전원 | End-to-End (데이터 → 모델 → 제출) 각자 풀 파이프라인 경험 |
+
+매일 회고를 통해 Lesson Learned → 4개 버전 반복 개선
 
 <br>
 <br/>
@@ -87,16 +98,6 @@
     │   └── ablation_learning_curves.png
     └── final_src_code.ipynb
 ```
-<br>
-<br/>
-
-## Team HuntrixAI
-Hunt the hidden threats in the Matrix of conversations.
-| 이름 | 역할 |
-|---|---|
-| 팀원 전원 | End-to-End (데이터 → 모델 → 제출) 각자 풀 파이프라인 경험 |
-
-매일 회고를 통해 Lesson Learned → 4개 버전 반복 개선
 
 <br>
 <br/>
