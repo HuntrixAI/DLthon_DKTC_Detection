@@ -123,7 +123,7 @@ LABEL_SMOOTH  = 0.05
 
 ## Ablation Study
 
-각 기법이 실제로 효과가 있었는지 하나씩 빼면서 검증:
+각 기법이 실제로 효과가 있었는지 하나씩 더하거나 빼면서 검증
 
 | 실험 | 구성 | 목적 |
 |---|---|---|
@@ -131,8 +131,10 @@ LABEL_SMOOTH  = 0.05
 | Exp2 | + Focal Loss | 클래스 불균형 해결 효과 |
 | Exp3 | + Focal + R-Drop | 과적합 방지 효과 |
 | Exp4 | 합성 데이터 500개로 축소 | 데이터 양의 영향 |
+<br>
+<br/>
 
-### Results
+## Version Results
 
 | Version | 전략 | Kaggle F1 |
 |---|---|---|
