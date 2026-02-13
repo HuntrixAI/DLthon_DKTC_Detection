@@ -1,15 +1,18 @@
-# DKTC Threat Detection Brief — HuntrixAI
+# DKTC Threat Detection Summary — HuntrixAI
+<br>
+<br/>
 
 ## Problem
 
-핵심 난제: train 데이터에 일반 대화가 0개이기 때문에 직접 합성해야 합니다.
+**핵심 난제**: train 데이터에 일반 대화가 0개이기 때문에 직접 합성해야 합니다.
 
 | 항목 | 내용 |
 |---|---|
 | 평가 지표 | Macro F1 Score |
 | 모델 | KcELECTRA + KcBERT 앙상블 |
 | 최종 성과 | Kaggle F1 0.79 |
-
+<br>
+<br/>
 
 ## Solution: 가설 → 검증 구조
 
@@ -27,7 +30,8 @@
 - 가정: train(일반대화 ~20%) vs test(일반대화 ~75%)
 - 검증: Prior Calibration 적용 전/후 비교
 - 결론: 모델 성능과 별개로 분포 보정이 F1에 직접적 영향
-
+<br>
+<br/>
 
 ## Pipeline
 
@@ -40,13 +44,14 @@
 6. Hard Sample   → Confidence 기반 Pseudo Labeling + 재학습
 7. Ablation      → 각 기법의 기여도 정량 증명
 ```
-
+<br>
+<br/>
 
 ## 데이터 구축 전략
 
 ### 기본 합성 (~3,000개)
 
-4개 공개 데이터셋에서 일반 대화를 수집하고, 위협 키워드 포함 문장을 사전 필터링한다.
+4개 공개 데이터셋에서 `일반 대화`를 수집하고, 위협 키워드 포함 문장을 사전 필터링한다.
 
 | 소스 | 설명 |
 |---|---|
@@ -70,7 +75,8 @@
 
 - Quality Filter: 15자 미만 / 500자 초과 / 특수문자 30%+ / 같은 문자 5회 반복 → 제거
 - Cosine Similarity 중복 제거: KcELECTRA 임베딩 유사도 0.95+ → 제거
-
+<br>
+<br/>
 
 ## 모델
 
@@ -95,55 +101,6 @@
 | Label Smoothing | 과도한 확신 방지, 일반화 향상 | Szegedy et al., 2016 |
 | Dynamic Class Weight | train/test 분포 불일치 보정 | Saerens et al., 2002 |
 
-
-## Ablation Study
-
-각 기법이 실제로 효과가 있었는지 하나씩 빼면서 검증:
-
-| 실험 | 구성 | 목적 |
-|---|---|---|
-| Exp1 | CE Loss only | Baseline 기준점 |
-| Exp2 | + Focal Loss | 클래스 불균형 해결 효과 |
-| Exp3 | + Focal + R-Drop | 과적합 방지 효과 |
-| Exp4 | 합성 데이터 500개로 축소 | 데이터 양의 영향 |
-
-
-## Repository Structure
-
-```
-DLthon_DKTC_Detection/
-├── README.md
-├── experiments/
-│   ├── v1_baseline.ipynb
-│   ├── v2_focal_rdrop.ipynb
-│   ├── v3_hard_negative_mining.ipynb
-│   └── v4_tapt_ensemble.ipynb
-├── data/
-│   ├── train.csv
-│   ├── test.csv
-│   └── synthetic/
-│       ├── hard_negatives_200.csv
-│       └── normal_conversation.csv
-├── models/
-├── submissions/
-│   ├── submission_v1.csv
-│   └── submission_final.csv
-└── docs/
-    └── presentation.md
-```
-
-
-## Quick Start
-
-```bash
-git clone https://github.com/HuntrixAI/DLthon_DKTC_Detection.git
-cd DLthon_DKTC_Detection
-
-pip install torch transformers datasets scikit-learn matplotlib seaborn
-
-jupyter notebook output/final_src_code.ipynb
-```
-
 ### 하이퍼파라미터
 
 ```python
@@ -161,9 +118,21 @@ FGM_EPSILON   = 1.0
 EMA_DECAY     = 0.999
 LABEL_SMOOTH  = 0.05
 ```
+<br>
+<br/>
 
+## Ablation Study
 
-## Results
+각 기법이 실제로 효과가 있었는지 하나씩 빼면서 검증:
+
+| 실험 | 구성 | 목적 |
+|---|---|---|
+| Exp1 | CE Loss only | Baseline 기준점 |
+| Exp2 | + Focal Loss | 클래스 불균형 해결 효과 |
+| Exp3 | + Focal + R-Drop | 과적합 방지 효과 |
+| Exp4 | 합성 데이터 500개로 축소 | 데이터 양의 영향 |
+
+### Results
 
 | Version | 전략 | Kaggle F1 |
 |---|---|---|
@@ -171,7 +140,21 @@ LABEL_SMOOTH  = 0.05
 | v2 | + 합성 1,000개 + Focal + R-Drop | 0.74 |
 | v3 | + Hard Negative 200개 + 7기법 | 0.79 |
 | v4 | + Prior Calibration + Pseudo Label | 0.72 |
+<br>
+<br/>
 
+## Quick Start
+
+```bash
+git clone https://github.com/HuntrixAI/DLthon_DKTC_Detection.git
+cd DLthon_DKTC_Detection
+
+pip install torch transformers datasets scikit-learn matplotlib seaborn
+
+jupyter notebook output/final_src_code.ipynb
+```
+<br>
+<br/>
 
 ## License
 
