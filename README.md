@@ -4,9 +4,6 @@
 <br>
 <br/>
 
-HuntrixAI
-Hunt the hidden threats in the Matrix of conversations.
-
 ## DLthon
 
 아이펠에서 진행하는 캐글 형식의 딥러닝 경진 대회입니다.
@@ -94,7 +91,7 @@ Hunt the hidden threats in the Matrix of conversations.
 <br/>
 
 ## Team HuntrixAI
-
+Hunt the hidden threats in the Matrix of conversations.
 | 이름 | 역할 |
 |---|---|
 | 팀원 전원 | End-to-End (데이터 → 모델 → 제출) 각자 풀 파이프라인 경험 |
